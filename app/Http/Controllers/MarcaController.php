@@ -99,6 +99,7 @@ class MarcaController extends Controller
     {
         /** @var Marca $marca */
         $marca = $this->marca->find($id);
+
         if ($marca === null) {
             return response()->json(['erro' => 'Impossível realizar a atualização. O recurso solicitado não existe.'], 404);
         }
@@ -119,8 +120,13 @@ class MarcaController extends Controller
             $request->validate($marca->rules(), $marca->feedback());
         }
 
+        $imagem = $request->file('imagem');
+        $imagem_urn = $imagem->store('imagens', 'public');
 
-        $marca->update($request->all());
+        $marca->update([
+            'nome' => $request->nome,
+            'imagem' => $imagem_urn
+        ]);
         return response()->json($marca, 200);
     }
 
