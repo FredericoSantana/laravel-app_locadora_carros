@@ -45,16 +45,20 @@ class MarcaController extends Controller
     {
         $request->validate($this->marca->rules(), $this->marca->feedback());
 
-//        dd($request->nome);
-//        dd($request->get('nome'));
 
-//        dd($request->imagem);
-//        dd($request->file('imagem'));
+        $imagem = $request->file('imagem');
+        $imagem_urn = $imagem->store('imagens', 'public');
 
-        $image = $request->file('imagem');
-        $image->store('imagens', 'public');
-        dd('Upload de arquivos');
-//        $marca = $this->marca->create($request->all());
+        $marca = $this->marca->create([
+          'nome' => $request->nome,
+          'imagem' => $imagem_urn
+        ]);
+
+        /* Essa forma também é válida.
+        $marca->nome = $request->nome;
+        $marca->imagem = $imagem_urn;
+        $marca->save();
+        */
         return response()->json($marca, 201);
     }
 
