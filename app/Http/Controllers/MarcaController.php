@@ -7,8 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Type\Integer;
 
+/**
+ * Class MarcaController
+ * @package App\Http\Controllers
+ */
 class MarcaController extends Controller
 {
+    /**
+     * MarcaController constructor.
+     * @param Marca $marca
+     */
     public function __construct(Marca $marca)
     {
         $this->marca = $marca;
