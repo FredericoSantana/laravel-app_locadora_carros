@@ -24,11 +24,24 @@ class ModeloController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json($this->modelo->with('marca')->get(), 200);
+//        dd($request->get('atributos'));
+        $modelos = [];
+
+        if ($request->has('atributos')) {
+            $atributos = $request->atributos;
+            $modelos = $this->modelo->selectRaw($atributos)->with('marca')->get();
+
+        } else {
+            $modelos = $this->modelo->with('marca')->get();
+
+        }
+//        $this->modelo->with('marca')->get()
+        return response()->json($modelos, 200);
     }
 
     /**
@@ -44,7 +57,7 @@ class ModeloController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -86,7 +99,7 @@ class ModeloController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Modelo  $modelo
+     * @param \App\Models\Modelo $modelo
      * @return \Illuminate\Http\Response
      */
     public function edit(Modelo $modelo)
@@ -161,7 +174,7 @@ class ModeloController extends Controller
      */
     public function destroy($id)
     {
-        /** @var Modelo  $modelo */
+        /** @var Modelo $modelo */
         $modelo = $this->modelo->find($id);
         if ($modelo === null) {
             return response()->json(['erro' => 'Impossível realizar a exclusão. O recurso solicitado não existe.'], 400);
