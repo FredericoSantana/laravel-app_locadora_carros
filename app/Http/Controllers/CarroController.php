@@ -107,7 +107,6 @@ class CarroController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         /** @var Carro $carro */
         $carro = $this->carro->find($id);
 
@@ -153,6 +152,6 @@ class CarroController extends Controller
         }
 
         $carro->delete();
-        return response()->json(['msg' => 'A carro foi removido com sucesso.'], 200);
+        return response()->json(['msg' => 'O carro foi removido com sucesso.'], 200);
     }
 }
