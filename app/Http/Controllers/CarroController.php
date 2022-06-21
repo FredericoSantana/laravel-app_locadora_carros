@@ -133,7 +133,6 @@ class CarroController extends Controller
 
         //preencher o objeto $carro com os dados do request
         $carro->fill($request->all());
-
         $carro->save();
 
         return response()->json($carro, 200);
