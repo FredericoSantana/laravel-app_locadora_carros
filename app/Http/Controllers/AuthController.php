@@ -22,7 +22,6 @@ class AuthController extends Controller
             //403 = forbidden -> proibido (login inválido)
         }
         //Retornar um Jason Web Token
-        return 'login';
     }
 
     public function logout()
@@ -37,6 +36,6 @@ class AuthController extends Controller
 
     public function me()
     {
-        return 'me';
+       return response()->json(auth()->user());
     }
 }
