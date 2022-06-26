@@ -22,6 +22,7 @@ Route::prefix('v1')->middleware('jwt.auth')->group(function() {
 
     Route::post('me', 'AuthController@me');
     Route::post('refresh', 'AuthController@refresh');
+    Route::post('logout', 'AuthController@logout');
 
     Route::apiResource('cliente', 'ClienteController');
     Route::apiResource('carro', 'CarroController');
@@ -32,6 +33,3 @@ Route::prefix('v1')->middleware('jwt.auth')->group(function() {
 
 
 Route::post('login', 'AuthController@login');
-Route::post('logout', 'AuthController@logout');
-
-
