@@ -3,17 +3,18 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Login (Component Vue)</div>
+                    <div class="card-header">Login</div>
 
                     <div class="card-body">
                         <form method="POST" action="">
-
+                            <input type="hidden" name="_token" :value="token_csrf">
                             <div class="row mb-3">
                                 <label for="email"
                                        class="col-md-4 col-form-label text-md-end">E-mail</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="" required autocomplete="email" autofocus>
+                                    <input id="email" type="email" class="form-control" name="email" value="" required
+                                           autocomplete="email" autofocus>
                                 </div>
                             </div>
 
@@ -62,7 +63,7 @@
 
 <script>
     export default {
-        name: "Login"
+        props: ['token_csrf']
     }
 </script>
 
