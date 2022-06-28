@@ -5456,6 +5456,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Marcas"
 });
@@ -28583,12 +28599,71 @@ var staticRenderFns = [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [_vm._v("Marcas")]),
+            _c("div", { staticClass: "card-header" }, [
+              _vm._v("Busca de marcas"),
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _c("p", [
-                _vm._v("Vamos manipular os registros de marcas por aqui."),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "inputId" } },
+                    [_vm._v("ID")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "number",
+                      id: "inputId",
+                      "aria-describedby": "idHelp",
+                      placeholder: "ID",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "idHelp" } },
+                    [_vm._v("Opcional. Informe o ID do registro")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "inputNome" } },
+                    [_vm._v("Nome")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "inputNome",
+                      "aria-describedby": "nomeHelp",
+                      placeholder: "Nome da marca",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "nomeHelp" } },
+                    [_vm._v("Opcional. Informe o nome da marca.")]
+                  ),
+                ]),
               ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  attrs: { type: "submit" },
+                },
+                [_vm._v("Pesquisar")]
+              ),
             ]),
           ]),
         ]),
